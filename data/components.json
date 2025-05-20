@@ -1,0 +1,180 @@
+{
+
+    "cpu": [
+    
+      { "brand": "Intel", "socket": "LGA1200", "name": "Intel Core i3-10100", "power": 65 },
+      { "brand": "Intel", "socket": "LGA1200", "name": "Intel Core i5-10400F", "power": 65 },
+      { "brand": "Intel", "socket": "LGA1200", "name": "Intel Core i5-10600K", "power": 125 },
+      { "brand": "Intel", "socket": "LGA1200", "name": "Intel Core i7-10700", "power": 65 },
+      { "brand": "Intel", "socket": "LGA1200", "name": "Intel Core i7-10700K", "power": 125 },
+      { "brand": "Intel", "socket": "LGA1200", "name": "Intel Core i9-10900", "power": 65 },
+      { "brand": "Intel", "socket": "LGA1200", "name": "Intel Core i9-10900K", "power": 125 },
+          
+      { "brand": "Intel", "socket": "LGA1200", "name": "Intel Core i3-10105", "power": 65 },
+      { "brand": "Intel", "socket": "LGA1200", "name": "Intel Core i5-11400F", "power": 65 },
+      { "brand": "Intel", "socket": "LGA1200", "name": "Intel Core i5-11600K", "power": 125 },
+      { "brand": "Intel", "socket": "LGA1200", "name": "Intel Core i7-11700", "power": 65 },
+      { "brand": "Intel", "socket": "LGA1200", "name": "Intel Core i7-11700K", "power": 125 },
+      { "brand": "Intel", "socket": "LGA1200", "name": "Intel Core i9-11900K", "power": 125 },
+          
+      { "brand": "Intel", "socket": "LGA1700", "name": "Intel Core i3-12100", "power": 60 },
+      { "brand": "Intel", "socket": "LGA1700", "name": "Intel Core i5-12400", "power": 65 },
+      { "brand": "Intel", "socket": "LGA1700", "name": "Intel Core i5-12600K", "power": 125 },
+      { "brand": "Intel", "socket": "LGA1700", "name": "Intel Core i7-12700", "power": 65 },
+      { "brand": "Intel", "socket": "LGA1700", "name": "Intel Core i7-12700K", "power": 125 },
+      { "brand": "Intel", "socket": "LGA1700", "name": "Intel Core i9-12900K", "power": 125 },
+          
+      { "brand": "Intel", "socket": "LGA1700", "name": "Intel Core i5-13400F", "power": 65 },
+      { "brand": "Intel", "socket": "LGA1700", "name": "Intel Core i5-13600K", "power": 125 },
+      { "brand": "Intel", "socket": "LGA1700", "name": "Intel Core i7-13700K", "power": 125 },
+      { "brand": "Intel", "socket": "LGA1700", "name": "Intel Core i9-13900K", "power": 125 },
+            
+      { "brand": "AMD", "socket": "AM4", "name": "Ryzen 3 1200", "power": 65 },
+      { "brand": "AMD", "socket": "AM4", "name": "Ryzen 3 1300X", "power": 65 },
+      { "brand": "AMD", "socket": "AM4", "name": "Ryzen 3 2200G", "power": 65 },
+      { "brand": "AMD", "socket": "AM4", "name": "Ryzen 3 3200G", "power": 65 },
+      { "brand": "AMD", "socket": "AM4", "name": "Ryzen 3 3100", "power": 65 },
+      { "brand": "AMD", "socket": "AM4", "name": "Ryzen 3 3300X", "power": 65 },
+  
+      { "brand": "AMD", "socket": "AM4", "name": "Ryzen 5 1400", "power": 65 },
+      { "brand": "AMD", "socket": "AM4", "name": "Ryzen 5 1500X", "power": 65 },
+      { "brand": "AMD", "socket": "AM4", "name": "Ryzen 5 1600", "power": 65 },
+      { "brand": "AMD", "socket": "AM4", "name": "Ryzen 5 1600AF", "power": 65 },
+      { "brand": "AMD", "socket": "AM4", "name": "Ryzen 5 2400G", "power": 65 },
+      { "brand": "AMD", "socket": "AM4", "name": "Ryzen 5 2600", "power": 65 },
+      { "brand": "AMD", "socket": "AM4", "name": "Ryzen 5 2600X", "power": 95 },
+      { "brand": "AMD", "socket": "AM4", "name": "Ryzen 5 3400G", "power": 65 },
+      { "brand": "AMD", "socket": "AM4", "name": "Ryzen 5 3600", "power": 65 },
+      { "brand": "AMD", "socket": "AM4", "name": "Ryzen 5 3600X", "power": 95 },
+      { "brand": "AMD", "socket": "AM4", "name": "Ryzen 5 3600XT", "power": 95 },
+      { "brand": "AMD", "socket": "AM4", "name": "Ryzen 5 5600", "power": 65 },
+      { "brand": "AMD", "socket": "AM4", "name": "Ryzen 5 5600X", "power": 65 },
+      { "brand": "AMD", "socket": "AM4", "name": "Ryzen 5 5600G", "power": 65 },
+      { "brand": "AMD", "socket": "AM4", "name": "Ryzen 5 5500", "power": 65 },
+  
+      { "brand": "AMD", "socket": "AM4", "name": "Ryzen 7 1700", "power": 65 },
+      { "brand": "AMD", "socket": "AM4", "name": "Ryzen 7 1700X", "power": 95 },
+      { "brand": "AMD", "socket": "AM4", "name": "Ryzen 7 1800X", "power": 95 },
+      { "brand": "AMD", "socket": "AM4", "name": "Ryzen 7 2700", "power": 65 },
+      { "brand": "AMD", "socket": "AM4", "name": "Ryzen 7 2700X", "power": 105 },
+      { "brand": "AMD", "socket": "AM4", "name": "Ryzen 7 3700X", "power": 65 },
+      { "brand": "AMD", "socket": "AM4", "name": "Ryzen 7 3800X", "power": 105 },
+      { "brand": "AMD", "socket": "AM4", "name": "Ryzen 7 3800XT", "power": 105 },
+      { "brand": "AMD", "socket": "AM4", "name": "Ryzen 7 5700G", "power": 65 },
+      { "brand": "AMD", "socket": "AM4", "name": "Ryzen 7 5700X", "power": 65 },
+      { "brand": "AMD", "socket": "AM4", "name": "Ryzen 7 5800X", "power": 105 },
+      { "brand": "AMD", "socket": "AM4", "name": "Ryzen 7 5800X3D", "power": 105 },
+  
+      { "brand": "AMD", "socket": "AM4", "name": "Ryzen 9 3900X", "power": 105 },
+      { "brand": "AMD", "socket": "AM4", "name": "Ryzen 9 3900XT", "power": 105 },
+      { "brand": "AMD", "socket": "AM4", "name": "Ryzen 9 3950X", "power": 105 },
+      { "brand": "AMD", "socket": "AM4", "name": "Ryzen 9 5900X", "power": 105 },
+      { "brand": "AMD", "socket": "AM4", "name": "Ryzen 9 5950X", "power": 105 },
+  
+      { "brand": "Intel", "socket": "LGA1200", "name": "Intel Core i5-10400F", "power": 65 },
+      { "brand": "Intel", "socket": "LGA1200", "name": "Intel Core i7-10700", "power": 65 },
+      { "brand": "Intel", "socket": "LGA1200", "name": "Intel Core i9-10900K", "power": 125 },
+      { "brand": "Intel", "socket": "LGA1700", "name": "Intel Core i5-12400", "power": 65 },
+      { "brand": "Intel", "socket": "LGA1700", "name": "Intel Core i7-12700K", "power": 125 },
+      { "brand": "Intel", "socket": "LGA1700", "name": "Intel Core i9-12900K", "power": 125 }
+    ],
+
+    "gpu": [
+      { "brand": "NVIDIA", "series": "GTX 10", "name": "GTX 1050", "power": 75 },
+      { "brand": "NVIDIA", "series": "GTX 10", "name": "GTX 1050 Ti", "power": 75 },
+      { "brand": "NVIDIA", "series": "GTX 10", "name": "GTX 1060 3GB", "power": 120 },
+      { "brand": "NVIDIA", "series": "GTX 10", "name": "GTX 1060 6GB", "power": 120 },
+      { "brand": "NVIDIA", "series": "GTX 10", "name": "GTX 1070", "power": 150 },
+      { "brand": "NVIDIA", "series": "GTX 10", "name": "GTX 1070 Ti", "power": 180 },
+      { "brand": "NVIDIA", "series": "GTX 10", "name": "GTX 1080", "power": 180 },
+      { "brand": "NVIDIA", "series": "GTX 10", "name": "GTX 1080 Ti", "power": 250 },
+      { "brand": "NVIDIA", "series": "GTX 16", "name": "GTX 1650", "power": 75 },
+      { "brand": "NVIDIA", "series": "GTX 16", "name": "GTX 1660", "power": 120 },
+      { "brand": "NVIDIA", "series": "GTX 16", "name": "GTX 1660 Ti", "power": 120 },
+      { "brand": "NVIDIA", "series": "RTX 20", "name": "RTX 2060", "power": 160 },
+      { "brand": "NVIDIA", "series": "RTX 20", "name": "RTX 2070", "power": 175 },
+      { "brand": "NVIDIA", "series": "RTX 20", "name": "RTX 2080", "power": 215 },
+      { "brand": "NVIDIA", "series": "RTX 20", "name": "RTX 2080 Ti", "power": 250 },
+      { "brand": "NVIDIA", "series": "RTX 30", "name": "RTX 3060", "power": 170 },
+      { "brand": "NVIDIA", "series": "RTX 30", "name": "RTX 3060 Ti", "power": 200 },
+      { "brand": "NVIDIA", "series": "RTX 30", "name": "RTX 3070", "power": 220 },
+      { "brand": "NVIDIA", "series": "RTX 30", "name": "RTX 3080", "power": 320 },
+      { "brand": "NVIDIA", "series": "RTX 30", "name": "RTX 3090", "power": 350 },
+      { "brand": "NVIDIA", "series": "RTX 40", "name": "RTX 4060", "power": 115 },
+      { "brand": "NVIDIA", "series": "RTX 40", "name": "RTX 4070", "power": 200 },
+      { "brand": "NVIDIA", "series": "RTX 40", "name": "RTX 4070 Ti", "power": 285 },
+      { "brand": "NVIDIA", "series": "RTX 40", "name": "RTX 4080", "power": 320 },
+      { "brand": "NVIDIA", "series": "RTX 40", "name": "RTX 4090", "power": 450 }
+    ],
+
+    "ram": [
+      { "type": "DDR4", "size": "8GB", "power": 3 },
+      { "type": "DDR4", "size": "16GB", "power": 4 },
+      { "type": "DDR4", "size": "32GB", "power": 5 },
+      { "type": "DDR5", "size": "16GB", "power": 5 },
+      { "type": "DDR5", "size": "32GB", "power": 6 }
+  ],
+
+    "storage": [
+      { "type": "HDD", "size": "1TB", "power": 6 },
+      { "type": "HDD", "size": "2TB", "power": 9 },
+      { "type": "SSD", "size": "500GB", "power": 2 },
+      { "type": "SSD", "size": "1TB", "power": 3 }
+  ],
+
+    "cooler": [
+      { "type": "Case Fan", "size": "120mm", "power": 3 }
+  ],
+
+  "psu": [
+      {
+      "brand": "ASUS",
+      "model": "TUF Gaming 550B Bronze",
+      "power": 550,
+      "modularity": "non-CM"
+      },
+      {
+      "brand": "ASUS",
+      "model": "TUF Gaming 650B Bronze",
+      "power": 650,
+      "modularity": "non-CM"
+      },
+      {
+      "brand": "ASUS",
+      "model": "TUF Gaming 750B Bronze",
+      "power": 750,
+      "modularity": "non-CM"
+      },
+      {
+      "brand": "ASUS",
+      "model": "TUF Gaming 750G Gold",
+      "power": 750,
+      "modularity": "CM"
+      },
+      {
+      "brand": "ASUS",
+      "model": "TUF Gaming 850G Gold",
+      "power": 850,
+      "modularity": "CM"
+      },
+      {
+        "brand": "ASUS",
+        "model": "TUF Gaming 1000G Gold",
+        "power": 1000,
+        "modularity": "CM"
+      },
+      {
+        "brand": "ASUS",
+        "model": "ROG Strix 1200G Gold Aura Edition",
+        "power": 1200,
+        "modularity": "CM"
+      }, 
+      {
+        "brand": "ASUS",
+        "model": "ROG Thor 1600T Titanium",
+        "power": 1600,
+        "modularity": "CM"
+      }
+    ]
+  }
+  
