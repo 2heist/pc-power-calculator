@@ -52,6 +52,12 @@ const server = http.createServer((req, res) => {
   const filePath = path.join(__dirname, pathname.startsWith('/public') ? '.' : './public', pathname);
   const extname = path.extname(filePath);
 
+  if (pathname === '/api/components'){
+    res.writeHead(200, {'contentType' : 'application/json' });
+    res.end(JSON.stringify(componentsData));
+    return;
+  } 
+
   fs.readFile(filePath, (err, content) => {
     if(err) {
       if(err.code === 'ENOENT') {
