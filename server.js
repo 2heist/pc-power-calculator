@@ -34,3 +34,10 @@ const loadComponentsData = () => {
 };
 
 let componentsData = loadComponentsData();
+
+const REFRESH_INTERVAL = 5*60*1000 // 5 minutes
+setInterval(() => {
+  componentsData = loadComponentsData();
+  console.log('Components data refreshed');
+}, REFRESH_INTERVAL);
+
