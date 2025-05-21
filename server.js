@@ -1,9 +1,9 @@
 'use strict'
 
-const http = requier('http');
-const fs = requier('fs');
-const path = requier('path');
-const url = requier('url');
+const http = require('http');
+const fs = require('fs');
+const path = require('path');
+const url = require('url');
 
 
 const contentTypes = {
@@ -80,7 +80,7 @@ const server = http.createServer((req, res) => {
         res.end(content, 'utf8');
       }
   });
-
+});
 
 const PORT = process.env.PORT || 3000; 
 server.listen(PORT, () => {
