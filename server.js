@@ -88,6 +88,33 @@ const server = http.createServer((req, res) => {
   });
 });
 
+function validateComponents(components) {
+
+  if (components.cpu && !componentsData.cpu.some(c => c.name === components.cpu)){
+    return `CPU "${components.cpu}" not found in available components`;
+  }
+
+  if (components.gpu && !componentsData.gpu.some(g => g.name === components.gpu)){
+    return `GPU "${components.gpu}" not found in available components`;
+  }
+
+  if (components.ram) {
+    if (!Array.isArray(components.ram)) {
+      return 'RAM should be an array';
+    }
+
+    for (const ram of components.ram) {
+      if (!componentsData.ram.some(r => r.size === ram)) {
+         return `RAM with size "${ram}" not found in available components`;
+      }
+    }
+
+  }
+
+  return null;
+  
+}
+
 const PORT = process.env.PORT || 3000; 
 server.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
