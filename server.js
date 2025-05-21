@@ -17,3 +17,20 @@ const contentTypes = {
 };
 
 
+const loadComponentsData = () => {
+  try {
+    return JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'components.json'), 'utf8'));
+  } catch (error) {
+    console.error('Error loading components data', error);
+    return {
+      cpu: [],
+      gpu: [],
+      ram: [],
+      storage: [],
+      cooler: [],
+      psu: []
+    };
+  }
+};
+
+let componentsData = loadComponentsData();
