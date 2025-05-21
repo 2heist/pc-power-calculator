@@ -41,3 +41,19 @@ setInterval(() => {
   console.log('Components data refreshed');
 }, REFRESH_INTERVAL);
 
+const server = http.createServer((req, res) => {
+  const parsedUrl = url.parse(req.url, true);
+  let pathname = parsedUrl.pathname;
+
+  if (pathname === '/') {
+    pathname = '/index.html';
+  }
+
+  const filePath = path.join(__dirname, pathname.startsWith('/public') ? '.' : './public', pathname);
+  const extname = path.extname(filePath);
+});
+
+const PORT = process.env.PORT || 3000; 
+server.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
