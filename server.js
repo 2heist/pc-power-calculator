@@ -111,6 +111,32 @@ function validateComponents(components) {
 
   }
 
+if (components.storage) {
+
+  if (!Array.isArray(components.storage)) {
+      return 'Storage should be an array';
+  }
+
+ for (const storage of components.storage) {
+
+      if (!componentsData.storage.some(s => s.size === storage)) {
+         return `Storage with size "${storage}" not found in available components`;
+      }  
+  }
+}
+
+if (components.cooler) {
+    if (!Array.isArray(components.cooler)) {
+      return 'Coolers should be an array';
+    }
+    
+    for (const cooler of components.cooler) {
+      if (!componentsData.cooler.some(c => c.size === cooler)) {
+        return `Cooler with size "${cooler}" not found in available components`;
+      }
+    }
+  }
+
   return null;
   
 }
