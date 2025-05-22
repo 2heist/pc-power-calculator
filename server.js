@@ -79,23 +79,40 @@ const server = http.createServer((req, res) => {
   }
   
   req.on('end', ()=> {
+
+    let components;
+
     try {
-      
-      const components = JSON.parse(body);
-      const totalPower = calculateTotalPower(components);
-      const recommendedPcu = recommendPcu(totalPower);
-
-      res.writeHead(200, { 'Content-Type': 'application/json' });
-      res.end(JSON.stringify({ totalPower, recommendedPsu }));
-
-      } catch (error) {
-
-        res.writeHead(400, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify({ error: 'Invalid request' }));
-        return;
+    components = JSON.parse(body);
+    } catch (error) {
+    res.writeHead(400, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ error: 'Invalid JSON format' }));
+    return;
       }
 
-    
+    if (!components || typeof components !== 'object') {
+    res.writeHead(400, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ error: 'Invalid components data' }));
+    return;
+    }
+
+    const validationError = validateComponents(components);
+    if (validationError) {
+      res.writeHead(400, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ error: validationError }));
+      return;
+    }
+
+    const totalPower = calculateTotalPower(components);
+    const recommendedPsu = recommendPcu(totalPower);
+
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ totalPower, recommendedPsu }));
+  });
+  
+  req.on('error', (err) => {
+  res.writeHead(500, { 'Content-Type': 'application/json' });
+  res.end(JSON.stringify({ error: 'Server error processing request' }));
   });
 
 
