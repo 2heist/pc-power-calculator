@@ -58,37 +58,46 @@ const server = http.createServer((req, res) => {
     return;
   } 
 
-if (pathname === '/api/calculate' && req.method === 'POST') {
+  if (pathname === '/api/calculate' && req.method === 'POST') {
+    let body = '';
+    let bodySize = 0;
+    const MAX_BODY_SIZE = 1024 * 1024; // Limit to 1 MB
+    
+    req.on('data', chunk => {
+      bodySize += chunk.length;
+          
+      if (bodySize > MAX_BODY_SIZE) {
+        res.writeHead(413, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: 'Request body too large' }));
+        req.destroy();
+        return;
+      }
 
-  let body = '';
+      body += chunk.toString();
 
-   req.on('data', chunk => {
-    body += chunk.toString();
+    });
+  }
+  
+  req.on('end', ()=> {
+    try {
+      
+      const components = JSON.parse(body);
+      const totalPower = calculateTotalPower(components);
+      const recommendedPcu = recommendPcu(totalPower);
+
+      res.writeHead(200, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ totalPower, recommendedPsu }));
+
+      } catch (error) {
+
+        res.writeHead(400, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: 'Invalid request' }));
+        return;
+      }
+
+    
   });
 
-req.on('end', ()=> {
-  try {
-    
-    const components = JSON.parse(body);
-    const totalPower = calculateTotalPower(components);
-    const recommendedPcu = recommendPcu(totalPower);
-
-    res.writeHead(200, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify({ totalPower, recommendedPsu }));
-
-    } catch (error) {
-
-      res.writeHead(400, { 'Content-Type': 'application/json' });
-      res.end(JSON.stringify({ error: 'Invalid request' }));
-      
-    }
-
-
-});
-
-return;
-
-}
 
   fs.readFile(filePath, (err, content) => {
     if(err) {
