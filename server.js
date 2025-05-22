@@ -183,6 +183,18 @@ function calculateTotalPower(components) {
 return totalPower;
 }
 
+function recommendPcu(totalPower) {
+
+  const availablePsu = componentsData.psu
+    .filter(psu => psu.power >= totalPower)
+    .sort((a, b) => a.power - b.power);
+    
+  return availablePsu.length > 0 ? availablePsu[0] : null;
+
+}
+
+
+
 
 const PORT = process.env.PORT || 3000; 
 server.listen(PORT, () => {
