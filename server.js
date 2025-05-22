@@ -49,11 +49,17 @@ const server = http.createServer((req, res) => {
     pathname = '/index.html';
   }
 
-  const filePath = path.join(__dirname, pathname.startsWith('/public') ? '.' : './public', pathname);
+  const filePath = path.join(__dirname, 'public', pathname);
   const extname = path.extname(filePath);
 
+  if (pathname === '/api/calculate' && req.method !== 'POST') {
+  res.writeHead(405, { 'Content-Type': 'application/json' });
+  res.end(JSON.stringify({ error: 'Method not allowed. Use POST for this endpoint.' }));
+  return;
+  }
+  
   if (pathname === '/api/components'){
-    res.writeHead(200, {'contentType' : 'application/json' });
+    res.writeHead(200, {'Content-Type': 'application/json' });
     res.end(JSON.stringify(componentsData));
     return;
   } 
@@ -76,49 +82,46 @@ const server = http.createServer((req, res) => {
       body += chunk.toString();
 
     });
-  }
   
-  req.on('end', ()=> {
+  
+    req.on('end', ()=> {
 
-    let components;
+      let components;
 
-    try {
-    components = JSON.parse(body);
-    } catch (error) {
-    res.writeHead(400, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify({ error: 'Invalid JSON format' }));
-    return;
+      try {
+      components = JSON.parse(body);
+      } catch (error) {
+      res.writeHead(400, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ error: 'Invalid JSON format' }));
+      return;
+        }
+
+      if (!components || typeof components !== 'object') {
+      res.writeHead(400, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ error: 'Invalid components data' }));
+      return;
       }
 
-    if (!components || typeof components !== 'object') {
-    res.writeHead(400, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify({ error: 'Invalid components data' }));
-    return;
-    }
+      const validationError = validateComponents(components);
+      if (validationError) {
+        res.writeHead(400, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify({ error: validationError }));
+        return;
+      }
 
-    const validationError = validateComponents(components);
-    if (validationError) {
-      res.writeHead(400, { 'Content-Type': 'application/json' });
-      res.end(JSON.stringify({ error: validationError }));
-      return;
-    }
+      const totalPower = calculateTotalPower(components);
+      const recommendedPsu = recommendPsu(totalPower);
 
-    const totalPower = calculateTotalPower(components);
-    const recommendedPsu = recommendPcu(totalPower);
-
-    res.writeHead(200, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify({ totalPower, recommendedPsu }));
-  });
+      res.writeHead(200, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ totalPower, recommendedPsu }));
+    });
   
-  req.on('error', (err) => {
-  res.writeHead(500, { 'Content-Type': 'application/json' });
-  res.end(JSON.stringify({ error: 'Server error processing request' }));
-  });
+    req.on('error', (err) => {
+    res.writeHead(500, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ error: 'Server error processing request' }));
+    });
 
-  if (pathname === '/api/calculate' && req.method !== 'POST') {
-  res.writeHead(405, { 'Content-Type': 'application/json' });
-  res.end(JSON.stringify({ error: 'Method not allowed. Use POST for this endpoint.' }));
-  return;
+    return;
   }
   
   fs.readFile(filePath, (err, content) => {
@@ -145,7 +148,7 @@ const server = http.createServer((req, res) => {
 
     } else {
 
-        res.writeHead(200, {'Content-type': contentTypes[extname] || 'text/plain' });
+        res.writeHead(200, {'Content-Type': contentTypes[extname] || 'text/plain' });
         res.end(content, 'utf8');
       }
   });
@@ -246,7 +249,7 @@ function calculateTotalPower(components) {
 return totalPower;
 }
 
-function recommendPcu(totalPower) {
+function recommendPsu(totalPower) {
 
   const availablePsu = componentsData.psu
     .filter(psu => psu.power >= totalPower)
