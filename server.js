@@ -115,7 +115,12 @@ const server = http.createServer((req, res) => {
   res.end(JSON.stringify({ error: 'Server error processing request' }));
   });
 
-
+  if (pathname === '/api/calculate' && req.method !== 'POST') {
+  res.writeHead(405, { 'Content-Type': 'application/json' });
+  res.end(JSON.stringify({ error: 'Method not allowed. Use POST for this endpoint.' }));
+  return;
+  }
+  
   fs.readFile(filePath, (err, content) => {
     if(err) {
       if(err.code === 'ENOENT') {
