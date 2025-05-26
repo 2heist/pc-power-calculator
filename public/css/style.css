@@ -1,0 +1,259 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background-color: #f4f7fa;
+  color: #333;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+h1 {
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
+h2 {
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  color: #34495e;
+}
+
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.loader-content {
+  text-align: center;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 10px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loader-text {
+  font-size: 1.1rem;
+  color: #666;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: auto;
+  padding: 8px 15px;
+  font-size: 0.9rem;
+  margin-bottom: 0;
+}
+
+.component-section {
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+#ram-container,
+#storage-container,
+#cooler-container {
+  margin-bottom: 15px;
+}
+
+select,
+button {
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  width: 100%;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+.component-item {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.component-item select {
+  flex: 1;
+}
+
+.component-item .remove-button {
+  width: 100px;
+  background-color: #e74c3c;
+}
+
+.component-item .remove-button:hover {
+  background-color: #c0392b;
+}
+
+#calculate-button {
+  background-color: #27ae60;
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding: 12px;
+  margin-top: 20px;
+}
+
+#calculate-button:hover {
+  background-color: #2ecc71;
+}
+
+.error-message {
+  color: #e74c3c;
+  background-color: #fdf2f2;
+  padding: 10px;
+  border-radius: 4px;
+  margin-top: 10px;
+  border: 1px solid #f5c6cb;
+  display: none;
+}
+
+.error-message.show {
+  display: block;
+}
+
+#results {
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-top: 30px;
+}
+
+.result-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.result-item:last-child {
+  border-bottom: none;
+}
+
+.hidden {
+  display: none;
+}
+
+body.dark-theme {
+  background-color: #2c3e50;
+  color: #ecf0f1;
+}
+
+body.dark-theme .container {
+  background-color: #34495e;
+}
+
+body.dark-theme .component-section,
+body.dark-theme #results {
+  background-color: #34495e;
+  color: #ecf0f1;
+  border: 1px solid #4a5f7a;
+}
+
+body.dark-theme h1 {
+  color: #ecf0f1;
+}
+
+body.dark-theme h2 {
+  color: #bdc3c7;
+}
+
+body.dark-theme select {
+  background-color: #4a5f7a;
+  color: #ecf0f1;
+  border-color: #5a6c7d;
+}
+
+body.dark-theme .error-message {
+  background-color: #5a3a3a;
+  color: #ff6b6b;
+  border-color: #7a4a4a;
+}
+
+body.dark-theme .loader {
+  background-color: rgba(44, 62, 80, 0.9);
+}
+
+body.dark-theme .loader-text {
+  color: #bdc3c7;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 15px;
+  }
+  
+  .theme-toggle {
+    position: static;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  header {
+    margin-bottom: 20px;
+  }
+  
+  .component-item {
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .component-item .remove-button {
+    width: 100%;
+  }
+  
+  .component-section {
+    padding: 15px;
+  }
+}
