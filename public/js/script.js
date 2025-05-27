@@ -212,4 +212,37 @@ form.addEventListener('submit', async (e) => {
       .filter(value => value)
   };
   
+  try {
+  
+  const response = await fetch('/api/calculate', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(components)
+  });
+  
+  if (!response.ok) {
+    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+  }
+  
+  const data = await response.json();
+  
+  totalPowerSpan.textContent = `${data.totalPower}W`;
+  
+  if (data.recommendedPsu) {
+    recommendedPsuSpan.textContent = 
+      `${data.recommendedPsu.brand} ${data.recommendedPsu.model} (${data.recommendedPsu.power}W, ${data.recommendedPsu.modularity})`;
+  } else {
+    recommendedPsuSpan.textContent = 'No suitable power supply found in database';
+  }
+  
+  resultsDiv.classList.remove('hidden');
+  
+  resultsDiv.scrollIntoView({ behavior: 'smooth' });
+  
+  } catch (error) {
+  showError(`Failed to calculate power consumption: ${error.message}`);
+  }
+
 });
