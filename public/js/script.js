@@ -190,3 +190,26 @@ function validateForm() {
   
   return true;
 }
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  
+  if (!validateForm()) {
+    return;
+  }
+  
+  const components = {
+    cpu: cpuSelect.value,
+    gpu: gpuSelect.value,
+    ram: Array.from(document.querySelectorAll('.ram-select'))
+      .map(select => select.value)
+      .filter(value => value),
+    storage: Array.from(document.querySelectorAll('.storage-select'))
+      .map(select => select.value)
+      .filter(value => value),
+    cooler: Array.from(document.querySelectorAll('.cooler-select'))
+      .map(select => select.value)
+      .filter(value => value)
+  };
+  
+});
