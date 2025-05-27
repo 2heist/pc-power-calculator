@@ -27,3 +27,25 @@ function createOption(value, text) {
   option.textContent = text;
   return option;
 }
+
+async function loadComponents() {
+  try {
+    const response = await fetch('/api/components');
+    
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+    }
+    
+    const data = await response.json();
+    
+    if (!data.cpu || !data.gpu || !data.ram || !data.storage || !data.cooler) {
+      throw new Error('Incomplete component data from server');
+    }
+    
+    componentsData = data;
+    initializeForm(data);
+    
+  } catch (error) {
+    showError(`Failed to load component data: ${error.message}`);
+  }
+}
