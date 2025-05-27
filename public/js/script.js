@@ -49,3 +49,22 @@ async function loadComponents() {
     showError(`Failed to load component data: ${error.message}`);
   }
 }
+
+function initializeForm(data) {
+ 
+  data.cpu.forEach(cpu => {
+    const option = createOption(
+      cpu.name, 
+      `${cpu.brand} ${cpu.name} (${cpu.socket}, ${cpu.power}W)`
+    );
+    cpuSelect.appendChild(option);
+  });
+  
+  data.gpu.forEach(gpu => {
+    const option = createOption(
+      gpu.name,
+      `${gpu.brand} ${gpu.name} (${gpu.series}, ${gpu.power}W)`
+    );
+    gpuSelect.appendChild(option);
+  });
+}
