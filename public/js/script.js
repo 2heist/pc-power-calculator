@@ -67,6 +67,14 @@ function initializeForm(data) {
     );
     gpuSelect.appendChild(option);
   });
+
+  addRamSlot(data.ram);
+  addStorageSlot(data.storage);
+  addCoolerSlot(data.cooler);
+
+  addRamButton.addEventListener('click', () => addRamSlot(data.ram));
+  addStorageButton.addEventListener('click', () => addStorageSlot(data.storage));
+  addCoolerButton.addEventListener('click', () => addCoolerSlot(data.cooler));
 }
 
 function createRemoveButton(container, slot) {
