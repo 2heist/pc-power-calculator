@@ -134,3 +134,28 @@ function addStorageSlot(storageOptions) {
   storageSlot.appendChild(removeButton);
   storageContainer.appendChild(storageSlot);
 }
+
+function addCoolerSlot(coolerOptions) {
+  const coolerSlot = document.createElement('div');
+  coolerSlot.className = 'component-item';
+  
+  const select = document.createElement('select');
+  select.name = 'cooler[]';
+  select.className = 'cooler-select';
+  
+  select.appendChild(createOption('', '-- Select Cooler --'));
+  
+  coolerOptions.forEach(cooler => {
+    const option = createOption(
+      cooler.size,
+      `${cooler.type} ${cooler.size} (${cooler.power}W)`
+    );
+    select.appendChild(option);
+  });
+  
+  const removeButton = createRemoveButton(coolerContainer, coolerSlot);
+  
+  coolerSlot.appendChild(select);
+  coolerSlot.appendChild(removeButton);
+  coolerContainer.appendChild(coolerSlot);
+}
