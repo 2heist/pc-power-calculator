@@ -15,3 +15,15 @@ document.addEventListener('DOMContentLoaded', () => {
   
   let componentsData = null;
 });
+
+function showError(message) {
+  console.error('Error:', message);
+  alert(`An error occurred: ${message}`);
+}
+
+function createOption(value, text) {
+  const option = document.createElement('option');
+  option.value = value;
+  option.textContent = text;
+  return option;
+}
