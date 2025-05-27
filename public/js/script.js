@@ -68,3 +68,19 @@ function initializeForm(data) {
     gpuSelect.appendChild(option);
   });
 }
+
+function createRemoveButton(container, slot) {
+  const removeButton = document.createElement('button');
+  removeButton.type = 'button';
+  removeButton.className = 'remove-button';
+  removeButton.textContent = 'Remove';
+  removeButton.addEventListener('click', () => {
+    // Ensure at least one element remains
+    if (container.children.length > 1) {
+      container.removeChild(slot);
+    } else {
+      alert('At least one element must remain');
+    }
+  });
+  return removeButton;
+}
