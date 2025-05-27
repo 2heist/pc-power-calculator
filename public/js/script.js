@@ -84,3 +84,28 @@ function createRemoveButton(container, slot) {
   });
   return removeButton;
 }
+
+function addRamSlot(ramOptions) {
+  const ramSlot = document.createElement('div');
+  ramSlot.className = 'component-item';
+  
+  const select = document.createElement('select');
+  select.name = 'ram[]';
+  select.className = 'ram-select';
+  
+  select.appendChild(createOption('', '-- Select RAM --'));
+  
+  ramOptions.forEach(ram => {
+    const option = createOption(
+      ram.size,
+      `${ram.type} ${ram.size} (${ram.power}W)`
+    );
+    select.appendChild(option);
+  });
+  
+  const removeButton = createRemoveButton(ramContainer, ramSlot);
+  
+  ramSlot.appendChild(select);
+  ramSlot.appendChild(removeButton);
+  ramContainer.appendChild(ramSlot);
+}
