@@ -167,3 +167,26 @@ function addCoolerSlot(coolerOptions) {
   coolerSlot.appendChild(removeButton);
   coolerContainer.appendChild(coolerSlot);
 }
+
+function validateForm() {
+  if (!cpuSelect.value) {
+    alert('Please select a processor');
+    return false;
+  }
+  
+  if (!gpuSelect.value) {
+    alert('Please select a graphics card');
+    return false;
+  }
+  
+  const selectedRam = Array.from(document.querySelectorAll('.ram-select'))
+    .map(select => select.value)
+    .filter(value => value);
+    
+  if (selectedRam.length === 0) {
+    alert('Please select at least one RAM module');
+    return false;
+  }
+  
+  return true;
+}
