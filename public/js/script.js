@@ -245,4 +245,6 @@ form.addEventListener('submit', async (e) => {
   showError(`Failed to calculate power consumption: ${error.message}`);
   }
 
+  loadComponents();
+  
 });
