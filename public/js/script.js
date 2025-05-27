@@ -109,3 +109,28 @@ function addRamSlot(ramOptions) {
   ramSlot.appendChild(removeButton);
   ramContainer.appendChild(ramSlot);
 }
+
+function addStorageSlot(storageOptions) {
+  const storageSlot = document.createElement('div');
+  storageSlot.className = 'component-item';
+  
+  const select = document.createElement('select');
+  select.name = 'storage[]';
+  select.className = 'storage-select';
+  
+  select.appendChild(createOption('', '-- Select Storage --'));
+  
+  storageOptions.forEach(storage => {
+    const option = createOption(
+      storage.size,
+      `${storage.type} ${storage.size} (${storage.power}W)`
+    );
+    select.appendChild(option);
+  });
+  
+  const removeButton = createRemoveButton(storageContainer, storageSlot);
+  
+  storageSlot.appendChild(select);
+  storageSlot.appendChild(removeButton);
+  storageContainer.appendChild(storageSlot);
+}
